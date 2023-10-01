@@ -1,4 +1,5 @@
 <html lang="he" dir="rtl">
+<img id="logo" src="../assets/kinlogo2.png" alt="Your Logo">
 
 <div class="search-container">
   <h1>חיפוש ספרים</h1>
@@ -9,7 +10,14 @@
     <h2>תוצאות החיפוש:</h2>
     <ul>
       <li *ngFor="let book of searchResults">
-        <strong>{{ book.description }}</strong>  מיקום: {{ book.location }}
+        <div class="book-info">
+          <div><strong>{{ book.description }}</strong></div>
+          <strong>מעבר:</strong> {{ book.pass }}
+          <strong>צד:</strong> {{ book.side }}<br>
+          <strong>קומה:</strong> {{ book.floor }}
+          <strong>מיקום:</strong> {{ book.location }}
+        </div>
+
       </li>
     </ul>
   </div>
