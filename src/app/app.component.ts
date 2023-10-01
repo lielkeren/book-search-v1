@@ -12,15 +12,12 @@ export class AppComponent {
   searchResults: any[] = [];
 
   // Sample data. In a real-world scenario, you'd probably fetch this from an API or service.
-  books: any[] = (bookData as any).default;
+  allBooks: any[] = (bookData as any).default;
+  books = this.allBooks.filter(allBooks => allBooks.amount !== "0");
 
   searchBooks() {
-    console.log('liel ');
-
-    console.log(this.books);
-
     this.searchResults = this.books.filter(book =>
-      book.bookname.toLowerCase().includes(this.searchTerm.toLowerCase())
+      book.description.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 }
