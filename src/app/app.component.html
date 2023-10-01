@@ -2,10 +2,10 @@
 
 <div class="search-container">
   <h1>חיפוש ספרים</h1>
-  <input type="text" [(ngModel)]="searchTerm" placeholder="חפש ספר...">
-  <button (click)="searchBooks()">חפש</button>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="חפש ספר..." (input)="searchBooks()">
+  <!-- Removed the button since search is now live -->
 
-  <div *ngIf="searchResults.length">
+  <div *ngIf="searchResults.length; else noResults">
     <h2>תוצאות החיפוש:</h2>
     <ul>
       <li *ngFor="let book of searchResults">
@@ -13,5 +13,10 @@
       </li>
     </ul>
   </div>
+
+  <ng-template #noResults>
+    <h2>הספר לא נמצא</h2>
+  </ng-template>
+
 </div>
 </html>

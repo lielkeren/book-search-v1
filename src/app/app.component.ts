@@ -9,11 +9,11 @@ import * as bookData from "../assets/books.json";
 export class AppComponent {
   title = 'BookLocator';
   searchTerm: string = '';
-  searchResults: any[] = [];
 
   // Sample data. In a real-world scenario, you'd probably fetch this from an API or service.
   allBooks: any[] = (bookData as any).default;
-  books = this.allBooks.filter(allBooks => allBooks.amount !== "0");
+  books: any[] = this.allBooks.filter(allBooks => allBooks.amount !== "0");
+  searchResults: any[] = this.books;
 
   searchBooks() {
     this.searchResults = this.books.filter(book =>
